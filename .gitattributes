@@ -1,2 +1,47 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+import time
+import random
+
+# --- 1. Contar del 1 al 10 con sleep de n segundos ---
+def contar_con_sleep():
+    print("Contando del 1 al 10 con sleep de 1 segundo:")
+    for i in range(1, 11):
+        print(i)
+        time.sleep(1)  # pausa de 1 segundo
+
+# --- 2. Sumar lista de 100 enteros ---
+def sumar_enteros():
+    lista = [random.randint(1, 100) for _ in range(100)]
+    return sum(lista)
+
+# --- 3. Sumar lista de 100 números (enteros o floats) ---
+def sumar_mixta():
+    lista = [random.randint(1, 100) if i % 2 == 0 else random.uniform(1.0, 100.0) for i in range(100)]
+    return sum(lista)
+
+# ---- EJECUCIÓN CON TIME ----
+if __name__ == "__main__":
+    # Algoritmo 1
+    print("\n--- Algoritmo 1 ---")
+    start = time.time()
+    contar_con_sleep()
+    end = time.time()
+    print(f"Tiempo transcurrido: {end - start:.2f} segundos")
+
+    # Algoritmo 2
+    print("\n--- Algoritmo 2 ---")
+    start = time.time()
+    resultado1 = sumar_enteros()
+    end = time.time()
+    print(f"Suma de enteros: {resultado1}")
+    print(f"Tiempo transcurrido: {end - start:.6f} segundos")
+
+    # Algoritmo 3
+    print("\n--- Algoritmo 3 ---")
+    start = time.time()
+    resultado2 = sumar_mixta()
+    end = time.time()
+    print(f"Suma de enteros y floats: {resultado2}")
+    print(f"Tiempo transcurrido: {end - start:.6f} segundos")
